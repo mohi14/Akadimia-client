@@ -5,11 +5,14 @@ import { useEffect } from 'react'
 import { themeChange } from 'theme-change'
 import { useState } from 'react';
 import { HiMoon, HiOutlineSun } from "react-icons/hi";
+import { useContext } from 'react';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 
 const Header = () => {
     const activeClassName = 'bg-base-300';
-    const [user, setUser] = useState(null)
+
+    const { user } = useContext(AuthContext);
 
     const [status, setStatus] = useState(false);
     const handleDarkMode = () => {
