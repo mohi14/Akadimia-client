@@ -12,11 +12,19 @@ import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 const Header = () => {
     const activeClassName = 'bg-base-300';
 
-    const { user } = useContext(AuthContext);
+    const { user, logOutUser } = useContext(AuthContext);
 
     const [status, setStatus] = useState(false);
     const handleDarkMode = () => {
         setStatus(!status);
+    }
+
+    const handleLogOut = () => {
+        logOutUser()
+            .then(() => { })
+            .catch(error => {
+                console.error(error)
+            })
     }
 
     return (
@@ -28,8 +36,20 @@ const Header = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                            <Link to='/login' className='mr-2 btn btn-primary  lg:hidden'>Login</Link>
-                            <li className="tooltip tooltip-left" data-tip="hello"><NavLink to='/home' className={({ isActive }) =>
+                            <li>{user?.uid ?
+                                <>
+                                    <div className="avatar mb-2  flex lg:hidden">
+                                        <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                            <img src={user?.photoURL} alt='' />
+                                        </div>
+                                    </div>
+                                    <button className='btn btn-outline btn-primary flex lg:hidden' >LogOut</button>
+                                </>
+                                :
+                                <Link to='/login' className='mr-2 btn btn-outline btn-primary  lg:hidden flex'>Login</Link>
+                            }</li>
+
+                            <li><NavLink to='/home' className={({ isActive }) =>
                                 isActive ? activeClassName : undefined
                             }>Home</NavLink></li>
 
@@ -50,7 +70,8 @@ const Header = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex font-semibold">
                     <ul className="menu menu-horizontal p-0">
-                        <li className="tooltip tooltip-left" data-tip="hello"><NavLink to='/home' className={({ isActive }) =>
+
+                        <li><NavLink to='/home' className={({ isActive }) =>
                             isActive ? activeClassName : undefined
                         }>Home</NavLink></li>
 
@@ -61,7 +82,7 @@ const Header = () => {
                         <li><NavLink to='/blog' className={({ isActive }) =>
                             isActive ? activeClassName : undefined
                         }>Blog</NavLink></li>
-                        <li><NavLink to='/faq' className={({ isActive }) =>
+                        <li ><NavLink to='/faq' className={({ isActive }) =>
                             isActive ? activeClassName : undefined
                         }>FAQ</NavLink></li>
 
@@ -74,17 +95,21 @@ const Header = () => {
                     <input type="checkbox" className="toggle toggle-primary" checked={status} onClick={handleDarkMode} />
 
 
+
+
                     <div className='ml-5'>
                         {user?.uid ?
-                            <>
-                                <span>{user?.displayName}</span>
-                                <button className='btn' >LogOut</button>
-                            </>
-                            : <>
-                                <Link to='/login' className='mr-2 btn btn-outline btn-primary hidden lg:flex'>Login</Link>
+                            <div className='flex justify justify-center items-center tooltip  tooltip-bottom' data-tip={user?.displayName}>
+                                <div className="avatar online mr-5 hidden lg:flex">
+                                    <div className=" w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2" >
+                                        <img className="tooltip tooltip-bottom" data-tip="hello" src={user?.photoURL} alt='' />
+                                    </div>
+                                </div>
 
-                            </>
-
+                                <button className='btn btn-outline btn-primary hidden lg:flex' onClick={handleLogOut} >LogOut</button>
+                            </div>
+                            :
+                            <Link to='/login' className='mr-2 btn btn-outline btn-primary hidden lg:flex'>Login</Link>
                         }
                     </div>
                 </div>
