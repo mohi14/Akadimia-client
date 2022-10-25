@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { HiMoon, HiOutlineSun } from "react-icons/hi";
 import { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import { FaUserAlt } from 'react-icons/fa';
 
 
 const Header = () => {
@@ -38,11 +39,19 @@ const Header = () => {
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <li>{user?.uid ?
                                 <>
-                                    <div className="avatar mb-2  flex lg:hidden">
-                                        <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                            <img src={user?.photoURL} alt='' />
-                                        </div>
-                                    </div>
+
+                                    {
+                                        user?.photoURL ?
+                                            <div className="avatar online mb-3 flex lg:hidden">
+                                                <div className=" w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2" >
+                                                    <img className="tooltip tooltip-bottom" data-tip="hello" src={user?.photoURL} alt='' />
+                                                </div>
+                                            </div>
+                                            :
+                                            <div class=" flex lg:hidden overflow-hidden relative w-10 h-10 bg-gray-100 rounded-full dark:bg-gray-600 mr-5 online avatar mb-3">
+                                                <svg class="absolute -left-1 w-12 h-12 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+                                            </div>
+                                    }
                                     <button className='btn btn-outline btn-primary flex lg:hidden' >LogOut</button>
                                 </>
                                 :
@@ -100,11 +109,18 @@ const Header = () => {
                     <div className='ml-5'>
                         {user?.uid ?
                             <div className='flex justify justify-center items-center tooltip  tooltip-bottom' data-tip={user?.displayName}>
-                                <div className="avatar online mr-5 hidden lg:flex">
-                                    <div className=" w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2" >
-                                        <img className="tooltip tooltip-bottom" data-tip="hello" src={user?.photoURL} alt='' />
-                                    </div>
-                                </div>
+                                {
+                                    user?.photoURL ?
+                                        <div className="avatar online mr-5 hidden lg:flex">
+                                            <div className=" w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2" >
+                                                <img className="tooltip tooltip-bottom" data-tip="hello" src={user?.photoURL} alt='' />
+                                            </div>
+                                        </div>
+                                        :
+                                        <div class=" overflow-hidden relative w-10 h-10 bg-gray-100 rounded-full dark:bg-gray-600 mr-5 online hidden lg:flex">
+                                            <svg class="absolute -left-1 w-12 h-12 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+                                        </div>
+                                }
 
                                 <button className='btn btn-outline btn-primary hidden lg:flex' onClick={handleLogOut} >LogOut</button>
                             </div>

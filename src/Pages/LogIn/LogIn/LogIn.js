@@ -6,7 +6,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const LogIn = () => {
-    const { logInUser, googleSignInUser, githubSignInUser } = useContext(AuthContext);
+    const { logInUser, googleSignInUser, githubSignInUser, setLoading } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const handleSubmit = (event) => {
@@ -26,6 +26,9 @@ const LogIn = () => {
             .catch(error => {
                 console.error(error);
             })
+            .finally(() => {
+                setLoading(false)
+            })
 
     };
 
@@ -39,6 +42,9 @@ const LogIn = () => {
             .catch(error => {
                 console.error(error);
             })
+            .finally(() => {
+                setLoading(false)
+            })
     };
 
     const handleGithubSignIn = () => {
@@ -49,6 +55,9 @@ const LogIn = () => {
             })
             .catch(error => {
                 console.error(error)
+            })
+            .finally(() => {
+                setLoading(false)
             })
     }
 

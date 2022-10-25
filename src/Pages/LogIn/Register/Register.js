@@ -5,7 +5,7 @@ import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { useState } from 'react';
 
 const Register = () => {
-    const { emailPasswordSignUpUser } = useContext(AuthContext)
+    const { emailPasswordSignUpUser, updateUserProfile, setLoading } = useContext(AuthContext)
     const navigate = useNavigate()
     const [accepted, setAccepted] = useState(false)
 
@@ -24,15 +24,33 @@ const Register = () => {
                 const user = result.user;
                 console.log(user);
                 form.reset();
+                handleUpdateUserProfile(name, photoURL)
                 navigate('/')
             })
             .catch(error => console.error(error))
+            .finally(() => {
+                setLoading(false)
+            })
     };
 
     const handleAccepted = (event) => {
         setAccepted(event.target.checked)
     }
 
+
+    const handleUpdateUserProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        updateUserProfile(profile)
+            .then(() => { })
+            .catch(error => { console.error(error) })
+            .finally(() => {
+                setLoading(false)
+            })
+
+    }
 
     return (
         <div className="hero min-h-screen bg-base-200">
