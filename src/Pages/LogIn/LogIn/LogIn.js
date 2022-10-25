@@ -15,30 +15,31 @@ const LogIn = () => {
                             <label className="label">
                                 <span className="label-text font-semibold">Email</span>
                             </label>
-                            <input type="text" placeholder="Enter your email" className="input input-bordered input-primary w-full max-w-xs" />
+                            <input type="email" placeholder="Enter your email" className="input input-bordered input-primary w-full max-w-xs" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text font-semibold">Password</span>
                             </label>
-                            <input type="text" placeholder="Enter your password" className="input input-bordered input-primary w-full max-w-xs" />
+                            <input type="text" placeholder="Enter your password" className="input input-bordered input-primary w-full max-w-xs" required />
                             <label className="label font-semibold">
                                 <Link href="#" className="label-text-alt link link-hover">Forgot password?</Link>
                             </label>
                         </div>
                         <div className="form-control mt-3">
-                            <button className="btn btn-primary">Login</button>
+                            <button className="btn btn-primary" type='submit'>Login</button>
                             <div className="flex flex-col w-full border-opacity-50">
                                 <div className="divider">OR</div>
                                 <div className=" btn  bg-base-300  place-items-center mb-4"><CgGoogle className='mr-2 text-xl' />Google</div>
                                 <div className=" btn  bg-base-300  place-items-center"><IoLogoGithub className='mr-2 text-xl' /> Github</div>
                             </div>
+                            <small className='mt-3 font-semibold'>Don't have an account? <Link to='/register'><span className='text-primary'>Register.</span></Link></small>
                         </div>
 
                     </form>
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 };
 
