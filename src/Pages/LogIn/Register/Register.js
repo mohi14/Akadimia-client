@@ -2,10 +2,14 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import { useState } from 'react';
 
 const Register = () => {
     const { emailPasswordSignUpUser } = useContext(AuthContext)
     const navigate = useNavigate()
+    const [accepted, setAccepted] = useState(false)
+
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -23,7 +27,13 @@ const Register = () => {
                 navigate('/')
             })
             .catch(error => console.error(error))
+    };
+
+    const handleAccepted = (event) => {
+        setAccepted(event.target.checked)
     }
+
+
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col">
@@ -62,14 +72,14 @@ const Register = () => {
 
                         <div className="form-control">
                             <div className="flex flex-start">
-                                <input type="checkbox" className="checkbox checkbox-primary" />
+                                <input type="checkbox" className="checkbox checkbox-primary" onClick={handleAccepted} />
                                 <small className=" ml-2 font-semibold">Accept
                                     <Link to="/terms"> <span className='text-primary'>Terms and Conditions</span></Link></small>
                             </div>
 
                         </div>
                         <div className="form-control mt-3">
-                            <button className="btn btn-primary" type='submit'>Register</button>
+                            <button className="btn btn-primary" type='submit' disabled={!accepted}>Register</button>
                             <small className='mt-3 font-semibold'>Already have an account? <Link to='/login'><span className='text-primary'>Login.</span></Link></small>
                         </div>
 
