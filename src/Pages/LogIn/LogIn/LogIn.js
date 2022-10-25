@@ -1,8 +1,57 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { CgGoogle } from "react-icons/cg";
 import { IoLogoGithub } from "react-icons/io5";
+import { useContext } from 'react';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+
 const LogIn = () => {
+    const { logInUser, googleSignInUser, githubSignInUser } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const form = event.target;
+
+        const email = form.email.value;
+        const password = form.password.value;
+
+        logInUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                form.reset();
+                navigate('/')
+            })
+            .catch(error => {
+                console.error(error);
+            })
+
+    };
+
+    const handleGoogleSignIn = () => {
+        googleSignInUser()
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => {
+                console.error(error);
+            })
+    };
+
+    const handleGithubSignIn = () => {
+        githubSignInUser()
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
+
+
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col">
@@ -10,18 +59,18 @@ const LogIn = () => {
                     <h1 className="text-5xl font-bold">Please Login now!</h1>
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                    <form className="card-body">
+                    <form className="card-body" onSubmit={handleSubmit}>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text font-semibold">Email</span>
                             </label>
-                            <input type="email" placeholder="Enter your email" className="input input-bordered input-primary w-full max-w-xs" required />
+                            <input type="email" name='email' placeholder="Enter your email" className="input input-bordered input-primary w-full max-w-xs" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text font-semibold">Password</span>
                             </label>
-                            <input type="text" placeholder="Enter your password" className="input input-bordered input-primary w-full max-w-xs" required />
+                            <input type="password" name='password' placeholder="Enter your password" className="input input-bordered input-primary w-full max-w-xs" required />
                             <label className="label font-semibold">
                                 <Link href="#" className="label-text-alt link link-hover">Forgot password?</Link>
                             </label>
@@ -30,8 +79,8 @@ const LogIn = () => {
                             <button className="btn btn-primary" type='submit'>Login</button>
                             <div className="flex flex-col w-full border-opacity-50">
                                 <div className="divider">OR</div>
-                                <div className=" btn  bg-base-300  place-items-center mb-4"><CgGoogle className='mr-2 text-xl' />Google</div>
-                                <div className=" btn  bg-base-300  place-items-center"><IoLogoGithub className='mr-2 text-xl' /> Github</div>
+                                <div className=" btn  bg-base-300  place-items-center mb-4" onClick={handleGoogleSignIn}><CgGoogle className='mr-2 text-xl' />Google</div>
+                                <div className=" btn  bg-base-300  place-items-center" onClick={handleGithubSignIn}><IoLogoGithub className='mr-2 text-xl' /> Github</div>
                             </div>
                             <small className='mt-3 font-semibold'>Don't have an account? <Link to='/register'><span className='text-primary'>Register.</span></Link></small>
                         </div>
