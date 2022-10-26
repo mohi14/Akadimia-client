@@ -6,6 +6,7 @@ import CoursesField from "../Pages/Courses/CoursesField/CoursesField";
 import Home from "../Pages/Home/Home/Home";
 import LogIn from "../Pages/LogIn/LogIn/LogIn";
 import Register from "../Pages/LogIn/Register/Register";
+import MainCourseField from "../Pages/MainCourseField/MainCourseField";
 
 
 export const routes = createBrowserRouter([
@@ -24,17 +25,15 @@ export const routes = createBrowserRouter([
             {
                 path: '/courses',
                 element: <Courses></Courses>,
-                children: [
-                    {
-                        path: '/category/:id',
-                        element: <CoursesField></CoursesField>,
-                        loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
-                    }
-                ]
             },
             {
                 path: '/blog',
                 element: <Blog></Blog>
+            },
+            {
+                path: '/category/:id',
+                element: <MainCourseField></MainCourseField>,
+                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
             }
         ]
     }
