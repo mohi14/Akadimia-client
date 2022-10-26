@@ -4,6 +4,7 @@ import './Home.css'
 const Home = () => {
     return (
         <>
+            {/*-------- banner section start------ */}
             <div className='flex p-10 lg:px-40 lg:mb-60'>
                 <div className=' w-full lg:w-3/5  lg:pt-32'>
                     <h1 className='text-4xl lg:text-6xl font-semibold '>Learn without limits</h1>
@@ -16,6 +17,7 @@ const Home = () => {
                     </div>
                 </div>
             </div >
+            {/*-------- banner section end------ */}
         </>
     );
 };

@@ -31,6 +31,8 @@ const Header = () => {
     return (
 
         <div className="navbar bg-neutral text-neutral-content py-3 lg:px-5">
+
+            {/* -----navbar for mobile device start------ */}
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -77,6 +79,8 @@ const Header = () => {
                 <Link to='/' className="btn btn-ghost normal-case font-bold lg:text-4xl text-2xl flex content-center ">
                     <img src={Logo} alt="" className='w-12 mt-4 lg:mx-3' /> <div>Akadimia</div></Link>
             </div>
+            {/* -----navbar for mobile device end------ */}
+
             <div className="navbar-center hidden lg:flex font-semibold">
                 <ul className="menu menu-horizontal p-0">
 
@@ -102,9 +106,6 @@ const Header = () => {
                     {status ? <HiMoon className='text-xl' /> : < HiOutlineSun className='text-xl' />}
                 </div>
                 <input type="checkbox" className="toggle toggle-primary" checked={status} onClick={handleDarkMode} />
-
-
-
 
                 <div className='ml-5'>
                     {user?.uid ?
