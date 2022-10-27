@@ -21,6 +21,6 @@ Live site Link: [https://akadimia-8bbbd.web.app/](https://akadimia-8bbbd.web.app
     * Authentication system and hosting is done by the help of Firebase. 
     * Some icons of this website are grabbed from React-icons.
     * React-hot-toast is used for warning and successful alert.
-    * React-to-print package libraries is used to make downloadable pdf from the website.
+    * React-to-pdf package libraries is used to make downloadable pdf from the website.
     * For the storage of the fake data of this website is done by vercel.
 
