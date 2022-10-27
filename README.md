@@ -1,70 +1,26 @@
-# Getting Started with Create React App
+# Akadimia
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live site Link: [https://akadimia-8bbbd.web.app/](https://akadimia-8bbbd.web.app/).
 
-## Available Scripts
+### Welcome to my github repo. This is a online learning website where anyone can learn.
 
-In the project directory, you can run:
+* This website has different types of routes, some are public and others protected. To access into protected routes you must login.
 
-### `npm start`
+* Home, Courses, Blog and FAQ routes are public routes. Homepage of this website includes banner, featured courses and customer reviews sections. All the courses of this websites are in Courses page and they are categorized according to their topic name.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* After clicking any course it will lead you to a course description page. All the information about the course is shown dynamically. You can download course details from this page after clicking download icon.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* Under the course details there is a 'Get premium access' button. If you are log in to the website it will take you to the checkout page. But if you are not log in it will take you to the log in page. After log in you can access to this checkout page.
 
-### `npm test`
+* You can log in to this page by using email and password. Google and Github log in features also available to this website. You can register by using your name, photoURl, email and password. After login of registration your photo will be shown to the header section.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* ReactJs has been used to make this website. Some others frameworks and libraries also used. Such as..
+    * React-router-dom is used to make dynamic routes of this website.
+    * Strong and wonderful css framework called tailwind is used to beautify this website as well as it makes this website responsive.
+    * daisyUI a component library of tailwind also used.
+    * Authentication system and hosting is done by the help of Firebase. 
+    * Some icons of this website are grabbed from React-icons.
+    * React-hot-toast is used for warning and successful alert.
+    * React-to-print package libraries is used to make downloadable pdf from the website.
+    * For the storage of the fake data of this website is done by vercel.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
