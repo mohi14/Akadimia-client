@@ -19,6 +19,10 @@ const Home = () => {
             </div >
             {/*-------- banner section end------ */}
 
+            <div className='text-center'>
+                <h1 className='text-3xl lg:text-5xl font-semibold mb-3 text-primary'>From the Akadimia community</h1>
+                <p className='text-xl lg:text-2xl mb-10'>107+ million people are already learning on Akadimia</p>
+            </div>
             <CustomerReviews></CustomerReviews>
         </>
     );

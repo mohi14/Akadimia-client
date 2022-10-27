@@ -1,13 +1,10 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import Logo from '../../../assets/logo3.png';
-import { useEffect } from 'react'
-import { themeChange } from 'theme-change'
 import { useState } from 'react';
 import { HiMoon, HiOutlineSun } from "react-icons/hi";
 import { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
-import { FaUserAlt } from 'react-icons/fa';
 
 
 const Header = () => {
@@ -54,7 +51,7 @@ const Header = () => {
                                             <svg class="absolute -left-1 w-12 h-12 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
                                         </div>
                                 }
-                                <button className='btn btn-outline btn-primary flex lg:hidden' >LogOut</button>
+                                <button className='btn btn-outline btn-primary flex lg:hidden' onClick={handleLogOut}>LogOut</button>
                             </>
                             :
                             <Link to='/login' className='mb-2 btn btn-outline btn-primary  lg:hidden flex'>Login</Link>
