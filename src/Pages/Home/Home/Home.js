@@ -1,4 +1,5 @@
 import React from 'react';
+import CustomerReviews from '../../../others/CustomerReviews';
 
 const Home = () => {
     return (
@@ -17,6 +18,8 @@ const Home = () => {
                 </div>
             </div >
             {/*-------- banner section end------ */}
+
+            <CustomerReviews></CustomerReviews>
         </>
     );
 };
