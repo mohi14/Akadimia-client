@@ -1,12 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layouts/Main";
 import Blog from "../Pages/Blog/Blog";
+import CheckOut from "../Pages/CheckOut/CheckOut";
+import CourseDetail from "../Pages/CourseDetails/CourseDetail";
 import Courses from "../Pages/Courses/Courses";
-import CoursesField from "../Pages/Courses/CoursesField/CoursesField";
 import Home from "../Pages/Home/Home/Home";
 import LogIn from "../Pages/LogIn/LogIn/LogIn";
 import Register from "../Pages/LogIn/Register/Register";
 import MainCourseField from "../Pages/MainCourseField/MainCourseField";
+import PrivateRoutes from "./PrivateRoutes";
 
 
 export const routes = createBrowserRouter([
@@ -33,7 +35,17 @@ export const routes = createBrowserRouter([
             {
                 path: '/category/:id',
                 element: <MainCourseField></MainCourseField>,
-                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
+                loader: ({ params }) => fetch(`https://akadimia-server.vercel.app/category/${params.id}`)
+            },
+            {
+                path: '/courses/:id',
+                element: <CourseDetail></CourseDetail>,
+                loader: ({ params }) => fetch(`https://akadimia-server.vercel.app/courses/${params.id}`)
+            },
+            {
+                path: '/checkout/:id',
+                element: <PrivateRoutes><CheckOut></CheckOut></PrivateRoutes>,
+                loader: ({ params }) => fetch(`https://akadimia-server.vercel.app/checkout/${params.id}`)
             }
         ]
     }

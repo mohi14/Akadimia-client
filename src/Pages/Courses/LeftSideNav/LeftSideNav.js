@@ -7,15 +7,15 @@ const LeftSideNav = () => {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/course-category')
+        fetch('https://akadimia-server.vercel.app/course-category')
             .then(res => res.json())
             .then(data => setCategories(data))
     }, [])
     return (
         <div className='p-10'>
-            <h1 className='text-center mb-4 pb-2 text-3xl font-semibold w-full border-b-2 border-b-primary'>All Categories</h1>
+            <h1 className='text-center mb-4 pb-2 text-3xl font-semibold w-full border-b-2 border-b-primary text-gray-500  dark:text-gray-400'>All Categories</h1>
             {
-                categories.map(category => <p className='text-xl font-semibold my-3 hover:bg-primary p-2 rounded-lg'>
+                categories.map(category => <p className='text-xl font-semibold my-3 hover:bg-primary p-2 rounded-lg text-gray-500  dark:text-gray-400'>
                     <NavLink className={({ isActive }) =>
                         isActive ? activeClassName : undefined
                     }

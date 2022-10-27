@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaClock, FaSignal } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const CoursesCard = ({ course }) => {
 
@@ -18,10 +19,13 @@ const CoursesCard = ({ course }) => {
                         {course.duration}
                     </div>
                 </div>
-                <h2 className="card-title">{course.title}</h2>
-                <p>{course.details}</p>
+                <h2 className="card-title pt-5 text-primary font-bold">{course.title}</h2>
+                <p className='mb-5'>
+                    {course.details.length > 100 ?
+                        <>{course.details.slice(0, 100) + '...'}</>
+                        : course.details}</p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Course Details</button>
+                    <Link to={`/courses/${course._id}`}><button className="btn btn-primary">Course Details</button></Link>
                 </div>
             </div>
         </div>
