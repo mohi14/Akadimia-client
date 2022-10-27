@@ -3,85 +3,45 @@ import React from 'react';
 const Blog = () => {
     return (
         <div>
-            <div className='text-center mt-auto'>
+            <h1 className='text-center text-5xl font-semibold my-10'>Welcome the Blog</h1>
 
-                <div role="status">
-                    <svg aria-hidden="true" className="mr-2 w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"></path>
-                        <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"></path>
-                    </svg>
-                    <span className="sr-only">Loading...</span>
-                </div>
+            <div className='m-10 p-10 border-2 border-primary rounded-xl'>
+                <h3 className='text-2xl font-semibold mb-2 text-primary'>What is cors?</h3>
+                <p >Cross-Origin Resource Sharing (CORS) is an HTTP-header based mechanism that allows a server to indicate any origins (domain, scheme, or port) other than its own from which a browser should permit loading resources. CORS also relies on a mechanism by which browsers make a "preflight" request to the server hosting the cross-origin resource, in order to check that the server will permit the actual request. In that preflight, the browser sends headers that indicate the HTTP method and headers that will be used in the actual request.
 
+                    An example of a cross-origin request: the front-end JavaScript code served from https://domain-a.com uses XMLHttpRequest to make a request for https://domain-b.com/data.json.
 
-                <div className="text-white bg-primary focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 dark:bg-primary  dark:focus:ring-blue-800 inline-flex items-center">
-                    <svg role="status" className="inline mr-3 w-4 h-4 text-white animate-spin" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="#E5E7EB" />
-                        <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentColor" />
-                    </svg>
-                    Loading...
-                </div>
+                    For security reasons, browsers restrict cross-origin HTTP requests initiated from scripts. For example, XMLHttpRequest and the Fetch API follow the same-origin policy. This means that a web application using those APIs can only request resources from the same origin the application was loaded from unless the response from other origins includes the right CORS headers.</p>
             </div>
 
-
-
-            <div className="grid mb-8 rounded-lg border border-gray-200 shadow-sm dark:border-gray-700 md:mb-12 md:grid-cols-2">
-                <figure className="flex flex-col justify-center items-center p-8 text-center bg-white rounded-t-lg border-b border-gray-200 md:rounded-t-none md:rounded-tl-lg md:border-r dark:bg-gray-800 dark:border-gray-700">
-                    <blockquote className="mx-auto mb-4 max-w-2xl text-gray-500 lg:mb-8 dark:text-gray-400">
-                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Very easy this was to integrate</h3>
-                        <p className="my-4 font-light">If you care for your time, I hands down would go with this."</p>
-                    </blockquote>
-                    <figcaption className="flex justify-center items-center space-x-3">
-                        <img className="w-9 h-9 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/karen-nelson.png" alt="" />
-                        <div className="space-y-0.5 font-medium dark:text-white text-left">
-                            <div>Bonnie Green</div>
-                            <div className="text-sm font-light text-gray-500 dark:text-gray-400">Developer at Open AI</div>
-                        </div>
-                    </figcaption>
-                </figure>
-                <figure className="flex flex-col justify-center items-center p-8 text-center bg-white rounded-tr-lg border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-                    <blockquote className="mx-auto mb-4 max-w-2xl text-gray-500 lg:mb-8 dark:text-gray-400">
-                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Solid foundation for any project</h3>
-                        <p className="my-4 font-light">Designing with Figma components that can be easily translated to the utility classes of Tailwind CSS is a huge timesaver!"</p>
-                    </blockquote>
-                    <figcaption className="flex justify-center items-center space-x-3">
-                        <img className="w-9 h-9 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/roberta-casas.png" alt="" />
-                        <div className="space-y-0.5 font-medium dark:text-white text-left">
-                            <div>Roberta Casas</div>
-                            <div className="text-sm font-light text-gray-500 dark:text-gray-400">Lead designer at Dropbox</div>
-                        </div>
-                    </figcaption>
-                </figure>
-                <figure className="flex flex-col justify-center items-center p-8 text-center bg-white rounded-bl-lg border-b border-gray-200 md:border-b-0 md:border-r dark:bg-gray-800 dark:border-gray-700">
-                    <blockquote className="mx-auto mb-4 max-w-2xl text-gray-500 lg:mb-8 dark:text-gray-400">
-                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Mindblowing workflow</h3>
-                        <p className="my-4 font-light">Aesthetically, the well designed components are beautiful and will undoubtedly level up your next application."</p>
-                    </blockquote>
-                    <figcaption className="flex justify-center items-center space-x-3">
-                        <img className="w-9 h-9 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png" alt="" />
-                        <div className="space-y-0.5 font-medium dark:text-white text-left">
-                            <div>Jese Leos</div>
-                            <div className="text-sm font-light text-gray-500 dark:text-gray-400">Software Engineer at Facebook</div>
-                        </div>
-                    </figcaption>
-                </figure>
-                <figure className="flex flex-col justify-center items-center p-8 text-center bg-white rounded-b-lg border-gray-200 md:rounded-br-lg dark:bg-gray-800 dark:border-gray-700">
-                    <blockquote className="mx-auto mb-4 max-w-2xl text-gray-500 lg:mb-8 dark:text-gray-400">
-                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Efficient Collaborating</h3>
-                        <p className="my-4 font-light">You have many examples that can be used to create a fast prototype for your team."</p>
-                    </blockquote>
-                    <figcaption className="flex justify-center items-center space-x-3">
-                        <img className="w-9 h-9 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png" alt="" />
-                        <div className="space-y-0.5 font-medium dark:text-white text-left">
-                            <div>Joseph McFall</div>
-                            <div className="text-sm font-light text-gray-500 dark:text-gray-400">CTO at Google</div>
-                        </div>
-                    </figcaption>
-                </figure>
+            <div className='m-10 p-10 border-2 border-primary rounded-xl'>
+                <h3 className='text-2xl font-semibold mb-2 text-primary'>Why are you using firebase? What other options do you have to implement authentication?</h3>
+                <p >The Firebase Realtime Database lets you build rich, collaborative applications by allowing secure access to the database directly from client-side code. Data is persisted locally, and even while offline, realtime events continue to fire, giving the end user a responsive experience. <br />
+                    Authentication keeps invalid users out of databases, networks, and other resources. These types of authentication use factors, a category of credential for verification, to confirm user identity. Here are just a few of those methods.
+                    <li>Single-Factor/Primary Authentication</li>
+                    <li>Two-Factor Authentication (2FA)</li>
+                    <li>Single Sign-On (SSO)</li>
+                    <li>Multi-Factor Authentication (MFA)</li>
+                </p>
             </div>
+            <div className='m-10 p-10 border-2 border-primary rounded-xl'>
+                <h3 className='text-2xl font-semibold mb-2 text-primary'>How does the private route work?</h3>
+                <p >Private Routes in React Router (also called Protected Routes) require a user being authorized to visit a route (read: page). So if a user is not authorized for a specific page, they cannot access it. The most common example is authentication in a React application where a user can only access the protected pages when they are authorized (which means in this case being authenticated). Authorization goes beyond authentication though. For example, a user can also have roles and permissions which give a user access to specific areas of the application. Private Routes vary based on the Apps, For example, Dashboard, User Profile, App Settings, Home etc. In simple words, These routes can be accessed only after login.
 
+                    The constraints for Public and Private routes are that Public routes should not be accessed after login and Private routes should not be accessible before login.</p>
+            </div>
+            <div className='m-10 p-10 border-2 border-primary rounded-xl'>
+                <h3 className='text-2xl font-semibold mb-2 text-primary'>What is Node? How does Node work?</h3>
+                <p >Node.js is an open-source, cross-platform JavaScript runtime environment and library for running web applications outside the client's browser. Ryan Dahl developed it in 2009, and its latest iteration, version 15.14, was released in April 2021. Developers use Node.js to create server-side web applications, and it is perfect for data-intensive applications since it uses an asynchronous, event-driven model. It is a used as backend service where javascript works on the server-side of the application. This way javascript is used on both frontend and backend. Node.js runs on chrome v8 engine which converts javascript code into machine code, it is highly scalable, lightweight, fast, and data-intensive. Node.js accepts the request from the clients and sends the response, while working with the request node.js handles them with a single thread. To operate I/O operations or requests node.js use the concept of threads. Thread is a sequence of instructions that the server needs to perform. It runs parallel on the server to provide the information to multiple clients. Node.js is an event loop single-threaded language. It can handle concurrent requests with a single thread without blocking it for one request. <br />
 
+                    Node.js basically works on two concept
+
+                    <li>Asynchronous</li>
+                    <li>Non-blocking I/O</li></p>
+            </div>
         </div>
+
+
     );
 };
 
