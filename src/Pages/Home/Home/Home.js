@@ -1,7 +1,18 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import CustomerReviews from '../../../others/CustomerReviews';
+import CoursesCard from '../../CoursesCard/CoursesCard';
 
 const Home = () => {
+    const [featuredCourses, setFeaturedCourses] = useState([])
+
+    useEffect(() => {
+        fetch('https://akadimia-server-mohi14.vercel.app/featured-courses')
+            .then(res => res.json())
+            .then(data => setFeaturedCourses(data))
+    }, [])
     return (
         <>
             {/*-------- banner section start------ */}
@@ -18,6 +29,19 @@ const Home = () => {
                 </div>
             </div >
             {/*-------- banner section end------ */}
+            <div className='text-center'>
+                <h1 className='text-4xl font-semibold'>Popular Courses</h1>
+            </div>
+            <div className='my-5 w-full  p-10 grid grid-cols-1 lg:grid-cols-3 gap-4'>
+
+                {featuredCourses.map(course => <CoursesCard
+                    key={course._id}
+                    course={course}
+                ></CoursesCard>)}
+            </div>
+            <div className='text-center mb-20'>
+                <Link to="/courses"><button className='btn btn-primary'>View all courses</button></Link>
+            </div>
 
             <div className='text-center'>
                 <h1 className='text-3xl lg:text-5xl font-semibold mb-3 text-primary'>From the Akadimia community</h1>
