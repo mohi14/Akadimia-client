@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 
 const Register = () => {
     const { emailPasswordSignUpUser, updateUserProfile, setLoading } = useContext(AuthContext)
@@ -52,6 +53,10 @@ const Register = () => {
 
     }
 
+    const handleToast = () => {
+        toast.success('Registration Successful!! Thank you.')
+    }
+
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col">
@@ -97,7 +102,7 @@ const Register = () => {
 
                         </div>
                         <div className="form-control mt-3">
-                            <button className="btn btn-primary" type='submit' disabled={!accepted}>Register</button>
+                            <button className="btn btn-primary" type='submit' disabled={!accepted} onClick={handleToast}>Register</button>
                             <small className='mt-3 font-semibold'>Already have an account? <Link to='/login'><span className='text-primary'>Login.</span></Link></small>
                         </div>
 

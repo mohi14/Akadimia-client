@@ -4,8 +4,11 @@ import { CgGoogle } from "react-icons/cg";
 import { IoLogoGithub } from "react-icons/io5";
 import { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import { useState } from 'react';
 
 const LogIn = () => {
+    const [error, setError] = useState('')
+
     const { logInUser, googleSignInUser, githubSignInUser, setLoading } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
@@ -24,10 +27,12 @@ const LogIn = () => {
                 const user = result.user;
                 console.log(user);
                 form.reset();
+                setError('');
                 navigate(from, { replace: true });
             })
             .catch(error => {
                 console.error(error);
+                setError(error.message);
             })
             .finally(() => {
                 setLoading(false)
@@ -97,9 +102,13 @@ const LogIn = () => {
                                 <div className=" btn  bg-base-300  place-items-center" onClick={handleGithubSignIn}><IoLogoGithub className='mr-2 text-xl' /> Github</div>
                             </div>
                             <small className='mt-3 font-semibold'>Don't have an account? <Link to='/register'><span className='text-primary'>Register.</span></Link></small>
-                        </div>
 
+                            <div className='mt-3 text-error'>
+                                <p>{error}</p>
+                            </div>
+                        </div>
                     </form>
+
                 </div>
             </div >
         </div >
