@@ -20,7 +20,7 @@ const Home = () => {
                 <div className=' w-full lg:w-3/5  lg:pt-32'>
                     <h1 className='text-4xl lg:text-6xl font-semibold '>Learn without limits</h1>
                     <p className='lg:text-xl mt-7 mb-6'>Start, switch, or advance your career with more than 5,200 courses, Professional Certificates, and degrees from world-class universities and companies.</p>
-                    <button className='w-full lg:w-40 btn btn-primary lg:mr-3 mb-5'>Join for Free</button> <button className='w-full lg:w-60 btn btn-outline btn-primary'>Try Akadimia for Business</button>
+                    <Link to='/register'><button className='w-full lg:w-40 btn btn-primary lg:mr-3 mb-5'>Join for Free</button></Link> <button className='w-full lg:w-60 btn btn-outline btn-primary'>Try Akadimia for Business</button>
                 </div>
                 <div className='w-2/5 hidden lg:flex mt-20'>
                     <div className='bg-primary rounded-2xl absolute ml-28 shadow-2xl'>
@@ -40,7 +40,7 @@ const Home = () => {
                 ></CoursesCard>)}
             </div>
             <div className='text-center mb-20'>
-                <Link to="/courses"><button className='btn btn-primary'>View all courses</button></Link>
+                <Link to="/courses"><button className='btn btn-primary btn-outline'>View all courses</button></Link>
             </div>
 
             <div className='text-center'>

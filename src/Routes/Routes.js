@@ -8,6 +8,7 @@ import Home from "../Pages/Home/Home/Home";
 import LogIn from "../Pages/LogIn/LogIn/LogIn";
 import Register from "../Pages/LogIn/Register/Register";
 import MainCourseField from "../Pages/MainCourseField/MainCourseField";
+import PageNotFound from "../Pages/PageNoteFound/PageNotFound";
 import PrivateRoutes from "./PrivateRoutes";
 
 
@@ -57,6 +58,10 @@ export const routes = createBrowserRouter([
     {
         path: '/register',
         element: <Register></Register>
+    },
+    {
+        path: '*',
+        element: <PageNotFound></PageNotFound>
     }
 ]);
 
