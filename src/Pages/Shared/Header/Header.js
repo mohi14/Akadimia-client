@@ -10,6 +10,7 @@ import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 const Header = () => {
     const activeClassName = 'bg-base-300';
 
+
     const { user, logOutUser } = useContext(AuthContext);
 
     const [status, setStatus] = useState(false);
@@ -24,6 +25,7 @@ const Header = () => {
                 console.error(error)
             })
     }
+
 
     return (
 

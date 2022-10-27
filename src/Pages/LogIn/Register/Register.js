@@ -6,6 +6,8 @@ import { useState } from 'react';
 import toast from 'react-hot-toast';
 
 const Register = () => {
+    const [error, setError] = useState('')
+
     const { emailPasswordSignUpUser, updateUserProfile, setLoading } = useContext(AuthContext)
     const navigate = useNavigate()
     const [accepted, setAccepted] = useState(false)
@@ -26,9 +28,14 @@ const Register = () => {
                 console.log(user);
                 form.reset();
                 handleUpdateUserProfile(name, photoURL)
+                setError('');
+                toast.success('Registration Successful!! Thank you.')
                 navigate('/')
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+                console.error(error)
+                setError(error.message);
+            })
             .finally(() => {
                 setLoading(false)
             })
@@ -51,10 +58,6 @@ const Register = () => {
                 setLoading(false)
             })
 
-    }
-
-    const handleToast = () => {
-        toast.success('Registration Successful!! Thank you.')
     }
 
     return (
@@ -102,10 +105,12 @@ const Register = () => {
 
                         </div>
                         <div className="form-control mt-3">
-                            <button className="btn btn-primary" type='submit' disabled={!accepted} onClick={handleToast}>Register</button>
+                            <button className="btn btn-primary" type='submit' disabled={!accepted}>Register</button>
                             <small className='mt-3 font-semibold'>Already have an account? <Link to='/login'><span className='text-primary'>Login.</span></Link></small>
                         </div>
-
+                        <div className='mt-3 text-error'>
+                            <p>{error}</p>
+                        </div>
                     </form>
                 </div>
             </div >

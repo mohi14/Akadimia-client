@@ -5,11 +5,12 @@ import { IoLogoGithub } from "react-icons/io5";
 import { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 
 const LogIn = () => {
     const [error, setError] = useState('')
 
-    const { logInUser, googleSignInUser, githubSignInUser, setLoading } = useContext(AuthContext);
+    const { logInUser, googleSignInUser, githubSignInUser, setLoading, user } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -28,11 +29,13 @@ const LogIn = () => {
                 console.log(user);
                 form.reset();
                 setError('');
+                toast.success(`Welcome back ${user?.displayName}`)
                 navigate(from, { replace: true });
             })
             .catch(error => {
                 console.error(error);
                 setError(error.message);
+                toast.error('Your Email/Password is not correct!!')
             })
             .finally(() => {
                 setLoading(false)
@@ -45,6 +48,7 @@ const LogIn = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                toast.success(`Welcome back ${user?.displayName}`)
                 navigate(from, { replace: true });
             })
             .catch(error => {
@@ -60,6 +64,7 @@ const LogIn = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                toast.success(`Welcome back ${user?.displayName}`)
                 navigate(from, { replace: true });
             })
             .catch(error => {

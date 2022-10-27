@@ -18,7 +18,7 @@ const CourseDetail = () => {
                 <img src={image_url} alt="" className='w-full rounded-l-lg  h-full' />
             </div>
             <div ref={ref} className='w-full px-20 py-5'>
-                <h1 className='text-3xl lg:text-5xl font-semibold mb-10'>{title}<ReactToPrint trigger={() => <button><CgSoftwareDownload className='inline text-primary' /></button>} content={() => ref.current} /></h1>
+                <h1 className='text-3xl lg:text-5xl font-semibold mb-10'>{title}<ReactToPrint trigger={() => <button className=' tooltip  tooltip-bottom' data-tip='Download'><CgSoftwareDownload className='inline text-primary' /></button>} content={() => ref.current} /></h1>
                 <p className='mb-4'>{details}</p>
                 <p className='font-semibold text-xl'>Estimate time</p>
                 <p className='mb-2'>{duration}</p>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
@@ -9,6 +10,12 @@ const CheckOut = () => {
 
     const { user } = useContext(AuthContext);
 
+
+    const handleClick = () => {
+        toast('Thanks for purchasing!', {
+            icon: '👏',
+        });
+    }
     return (
         <div>
 
@@ -23,7 +30,7 @@ const CheckOut = () => {
                     <h2 className='text-2xl font-semibold'>Email</h2>
                     <p className='text-lg'>{user?.email}</p>
                     <div className="flex mt-4 space-x-3 md:mt-6">
-                        <Link className="btn btn-primary">Buy now</Link>
+                        <Link className="btn btn-primary" onClick={handleClick}>Buy now</Link>
                         <Link to='/courses' className="btn btn-primary btn-outline">View all courses</Link>
                     </div>
                 </div>
